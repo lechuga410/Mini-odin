@@ -4,6 +4,7 @@ Ruta A: Python + Flask + HTML/CSS/JS + SQLite
 """
 
 from flask import Flask, render_template, jsonify
+from database.conexion import inicializar_bd
 import os
 
 # Crear instancia de Flask
@@ -12,6 +13,9 @@ app = Flask(
     template_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend'),
     static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend')
 )
+
+# Inicializar base de datos al arrancar la aplicación
+inicializar_bd()
 
 
 @app.route('/')

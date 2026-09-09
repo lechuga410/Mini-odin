@@ -80,15 +80,17 @@ mini-odin/
 
 ## Estado de implementación
 
-- ✅ Estructura de carpetas
-- ✅ Configuración básica de Flask
-- ✅ Páginas HTML mínimas
-- ✅ Estilos CSS básicos
-- ⏳ Base de datos SQLite (siguiente fase)
-- ⏳ Endpoints CRUD
-- ⏳ Función de riesgo
-- ⏳ Validaciones
-- ⏳ Interfaz de usuario funcional
+- ✅ Fase 0 — Estructura inicial y configuración de Flask
+- ✅ Fase 1 — Base de datos SQLite
+- ⏳ Fase 2 — Gestión de activos
+- ⏳ Fase 3 — Gestión de alertas
+- ⏳ Fase 4 — Buscador y filtros
+- ⏳ Fase 5 — Panel resumen
+- ⏳ Fase 6 — Función de cálculo de riesgo
+- ⏳ Fase 7 — Validaciones y manejo de errores
+- ⏳ Fase 8 — Pruebas completas
+- ⏳ Fase 9 — Documentación y prompts
+- ⏳ Fase 10 — Preparación de videos y entrega
 
 ## Ejecución
 
