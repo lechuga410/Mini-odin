@@ -5,6 +5,7 @@ Ruta A: Python + Flask + HTML/CSS/JS + SQLite
 
 from flask import Flask, render_template, jsonify
 from database.conexion import inicializar_bd
+from routes.activos import bp_activos
 import os
 
 # Crear instancia de Flask
@@ -16,6 +17,9 @@ app = Flask(
 
 # Inicializar base de datos al arrancar la aplicación
 inicializar_bd()
+
+# Registrar blueprints (grupos de rutas)
+app.register_blueprint(bp_activos)
 
 
 @app.route('/')

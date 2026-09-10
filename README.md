@@ -55,34 +55,38 @@ Versión sencilla y educativa para la prueba técnica de Indtech.
 
 ```
 mini-odin/
-├── backend/
-│   ├── app.py                 # Aplicación Flask principal
-│   ├── riesgo.py              # Función de cálculo de riesgo (por implementar)
-│   ├── validadores.py         # Validaciones (por implementar)
-│   ├── routes/                # Blueprints de rutas
-│   └── database/              # Módulo de base de datos
-├── frontend/
-│   ├── index.html             # Panel resumen
-│   ├── activos.html           # Gestión de activos
-│   ├── alertas.html           # Gestión de alertas
-│   ├── css/
-│   │   └── estilos.css        # Estilos globales
-│   └── js/
-│       ├── api.js             # Comunicación con backend
-│       ├── resumen.js         # Lógica del panel
-│       ├── activos.js         # Lógica de activos
-│       ├── alertas.js         # Lógica de alertas
-│       └── validadores.js     # Validaciones en cliente
+├── mini_odin.db
 ├── requirements.txt
 ├── README.md
-└── PROMPTS.md
+├── PROMPTS.md
+├── backend/
+│   ├── app.py
+│   ├── riesgo.py
+│   ├── validadores.py
+│   ├── routes/
+│   │   └── __init__.py
+│   └── database/
+│       ├── __init__.py
+│       └── conexion.py
+└── frontend/
+    ├── index.html
+    ├── activos.html
+    ├── alertas.html
+    ├── css/
+    │   └── estilos.css
+    └── js/
+        ├── api.js
+        ├── resumen.js
+        ├── activos.js
+        ├── alertas.js
+        └── validadores.js
 ```
 
 ## Estado de implementación
 
 - ✅ Fase 0 — Estructura inicial y configuración de Flask
 - ✅ Fase 1 — Base de datos SQLite
-- ⏳ Fase 2 — Gestión de activos
+- ✅ Fase 2 — Gestión de activos (backend CRUD)
 - ⏳ Fase 3 — Gestión de alertas
 - ⏳ Fase 4 — Buscador y filtros
 - ⏳ Fase 5 — Panel resumen
