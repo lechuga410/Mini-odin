@@ -92,10 +92,10 @@ mini-odin/
 - ⏳ Fase 5 — Panel resumen (backend)
 - ⏳ Fase 6 — Función de cálculo de riesgo 
 - ⏳ Fase 7 — Integración completa del panel y backend
-- ⏳ Fase 8 — Frontend completo de la aplicación
-- ⏳ Fase 9 — Pruebas completas y manejo de errores
-- ⏳ Fase 10 — Documentación y prompts
-- ⏳ Fase 11 — Preparación de videos y entrega
+- ⏳ Fase 8 — Frontend completo de la aplicación 
+- ✅ Fase 9 — Pruebas completas y manejo de errores
+- ✅ Fase 10 — Documentación y prompts
+- ✅ Fase 11 — Preparación de videos y entrega
 
 ## Ejecución
 
