@@ -6,6 +6,7 @@ Ruta A: Python + Flask + HTML/CSS/JS + SQLite
 from flask import Flask, render_template, jsonify
 from database.conexion import inicializar_bd
 from routes.activos import bp_activos
+from routes.alertas import bp_alertas
 import os
 
 # Crear instancia de Flask
@@ -20,6 +21,7 @@ inicializar_bd()
 
 # Registrar blueprints (grupos de rutas)
 app.register_blueprint(bp_activos)
+app.register_blueprint(bp_alertas)
 
 
 @app.route('/')

@@ -83,3 +83,53 @@ def validar_activo(datos):
             return False, f"Criticidad inválida. Permitidas: {', '.join(criticidad_permitidas)}"
     
     return True, ""
+
+
+def validar_alerta(datos):
+    """
+    Valida los datos de una alerta nueva.
+    
+    Args:
+        datos (dict): Diccionario con campos de la alerta
+        
+    Returns:
+        tuple: (es_válido: bool, mensaje_error: str)
+               Si es válido, mensaje_error está vacío
+    """
+    # Campo obligatorio: titulo
+    if not datos.get('titulo', '').strip():
+        return False, "El campo 'titulo' es obligatorio"
+    
+    # Validar severidad (obligatorio)
+    severidad_permitidas = ['Baja', 'Media', 'Alta', 'Crítica']
+    if not datos.get('severidad'):
+        return False, "El campo 'severidad' es obligatorio"
+    
+    if datos['severidad'] not in severidad_permitidas:
+        return False, f"Severidad inválida. Permitidas: {', '.join(severidad_permitidas)}"
+    
+    # Validar estado (obligatorio)
+    estado_permitidos = ['Abierta', 'En análisis', 'Cerrada']
+    if not datos.get('estado'):
+        return False, "El campo 'estado' es obligatorio"
+    
+    if datos['estado'] not in estado_permitidos:
+        return False, f"Estado inválido. Permitidos: {', '.join(estado_permitidos)}"
+    
+    # Descripción es opcional, no validar
+    
+    return True, ""
+
+
+def validar_estado_alerta(estado):
+    """
+    Valida que un estado sea válido para una alerta.
+    
+    Args:
+        estado (str): Estado a validar
+        
+    Returns:
+        bool: True si es válido, False en caso contrario
+    """
+    estado_permitidos = ['Abierta', 'En análisis', 'Cerrada']
+    return estado in estado_permitidos
