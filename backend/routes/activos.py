@@ -24,13 +24,38 @@ def listar_activos():
     """
     GET /api/activos
     
-    Retorna la lista de todos los activos.
+    Retorna la lista de activos con búsqueda y filtro opcionales.
+    
+    Parámetros de query (opcionales):
+    - buscar: Buscar por nombre o IP (búsqueda parcial)
+    - criticidad: Filtrar por criticidad (Baja, Media, Alta, Crítica)
+    
+    Ejemplos:
+    - GET /api/activos
+    - GET /api/activos?buscar=PC-CONTABILIDAD
+    - GET /api/activos?criticidad=Alta
+    - GET /api/activos?buscar=192.168.1&criticidad=Media
     
     Returns:
-        JSON: Lista de activos
-        HTTP 200
+        JSON: Lista de activos que coinciden
+        HTTP 200 si éxito
+        HTTP 400 si criticidad inválida
     """
-    activos = obtener_activos()
+    # Obtener parámetros de query
+    buscar = request.args.get('buscar', None)
+    criticidad = request.args.get('criticidad', None)
+    
+    # Validar criticidad si se proporciona
+    if criticidad:
+        criticidades_validas = ['Baja', 'Media', 'Alta', 'Crítica']
+        if criticidad not in criticidades_validas:
+            return jsonify({
+                'error': f"Criticidad inválida. Permitidas: {', '.join(criticidades_validas)}"
+            }), 400
+    
+    # Llamar a la función de base de datos con parámetros seguros
+    activos = obtener_activos(buscar=buscar, criticidad=criticidad)
+    
     return jsonify(activos), 200
 
 

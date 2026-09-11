@@ -120,17 +120,43 @@ def crear_activo(nombre, ip, sistema_operativo, responsable, criticidad):
         return None
 
 
-def obtener_activos():
+def obtener_activos(buscar=None, criticidad=None):
     """
-    Obtiene todos los activos de la base de datos.
+    Obtiene activos de la base de datos con búsqueda y filtro opcionales.
     
+    Args:
+        buscar (str, optional): Buscar por nombre o IP (búsqueda parcial con LIKE)
+        criticidad (str, optional): Filtrar por criticidad exacta
+        
     Returns:
-        list: Lista de diccionarios con los activos
+        list: Lista de diccionarios con los activos que coinciden
     """
     conexion = obtener_conexion()
     cursor = conexion.cursor()
     
-    cursor.execute('SELECT * FROM activos ORDER BY id')
+    # Construir consulta dinámicamente
+    query = 'SELECT * FROM activos WHERE 1=1'
+    params = []
+    
+    # Si se proporciona búsqueda, buscar en nombre o IP (parcial con LIKE)
+    if buscar:
+        # Usar LIKE con % para búsqueda parcial (case-insensitive en SQLite por defecto)
+        query += ' AND (nombre LIKE ? OR ip LIKE ?)'
+        # Agregar wildcards para búsqueda parcial
+        buscar_param = f'%{buscar}%'
+        params.append(buscar_param)
+        params.append(buscar_param)
+    
+    # Si se proporciona criticidad, filtrar por criticidad exacta
+    if criticidad:
+        query += ' AND criticidad = ?'
+        params.append(criticidad)
+    
+    # Agregar orden
+    query += ' ORDER BY id'
+    
+    # Ejecutar con parámetros seguros
+    cursor.execute(query, params)
     filas = cursor.fetchall()
     conexion.close()
     

@@ -87,14 +87,15 @@ mini-odin/
 - ✅ Fase 0 — Estructura inicial y configuración de Flask
 - ✅ Fase 1 — Base de datos SQLite
 - ✅ Fase 2 — Gestión de activos (backend CRUD + pruebas)
-- ✅ Fase 3 — Gestión de alertas (backend CRUD + 9 tests pasados)
-- ⏳ Fase 4 — Frontend: Gestión de activos
-- ⏳ Fase 5 — Frontend: Gestión de alertas
-- ⏳ Fase 6 — Buscador y filtros
-- ⏳ Fase 7 — Panel resumen
-- ⏳ Fase 8 — Función de cálculo de riesgo
-- ⏳ Fase 9 — Documentación y prompts
-- ⏳ Fase 10 — Preparación de videos y entrega
+- ✅ Fase 3 — Gestión de alertas (backend CRUD + 9 pruebas)
+- ✅ Fase 4 — Buscador y filtros( 12/12 PASADAS PRUEBAS)
+- ⏳ Fase 5 — Panel resumen (backend)
+- ⏳ Fase 6 — Función de cálculo de riesgo 
+- ⏳ Fase 7 — Integración completa del panel y backend
+- ⏳ Fase 8 — Frontend completo de la aplicación
+- ⏳ Fase 9 — Pruebas completas y manejo de errores
+- ⏳ Fase 10 — Documentación y prompts
+- ⏳ Fase 11 — Preparación de videos y entrega
 
 ## Ejecución
 
